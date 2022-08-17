@@ -3,13 +3,14 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { useState, useEffect } from 'react';
 import './login.css';
 import longinpng from '../assets/login.png';
-
-import Navigation from '../navigation/Navigation'
+import Navbar from '../components/Navbar/Navbar';
+// import Navigation from '../navigation/Navigation'
 
 // import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 import 'antd/dist/antd.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import "@fortawesome/fontawesome-free/css/all.min.css"
 
 // let credentials = false;
@@ -80,7 +81,11 @@ const Login = () => {
     <>
       {success ? (
         <section>
-              <Navigation/>
+          <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<Navbar />} />
+            </Routes>
+          </BrowserRouter>
         </section>
       ) : (
 

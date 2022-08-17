@@ -1,0 +1,39 @@
+.css-pdct74-MuiTablePagination-selectLabel {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.MuiTablePagination-displayedRows {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.MuiDataGrid-toolbarContainer{
+    /* background-color: black; */
+    color: 'secondary';
+    border: none;
+    outline: none;
+}
+
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    background-color: #f5b618;
+    top: -8px;
+    padding-bottom: 80px;
+    color:'#f5b618'
+}
+
+.dx-scrollbar-vertical .dx-scrollbar-hoverable {
+    width: 2000px !important;
+    height: 10px !important;
+}
+
+
+/* .MuiDataGrid-virtualScroller{
+    width: 200vw;
+}
+
+.css-1w5m2wr-MuiDataGrid-virtualScroller{
+    background-color: bisque;
+} */

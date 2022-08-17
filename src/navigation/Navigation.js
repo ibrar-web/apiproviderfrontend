@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from '../components/Navbar/Navbar'
+// import Navbar from '../components/Navbar/Navbar'
 import Home from '../components/Home/Home'
 import Partner from '../components/Partner/Partner'
 import PartnerUser from '../components/Partneruser/PartnerUser'
@@ -13,9 +13,9 @@ import SummaryReport from '../components/SummaryReport/SummaryReport'
 export default function navigation() {
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <Routes>
-          <Route path="/" element={<Navbar />} />
+          {/* <Route path="/" element={<Navbar />} /> */}
           <Route path="/home" element={<Home />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/partnerusers" element={<PartnerUser />} />
@@ -27,7 +27,7 @@ export default function navigation() {
           <Route path="/summaryreport" element={<SummaryReport/>} />
           
         </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   )
 }

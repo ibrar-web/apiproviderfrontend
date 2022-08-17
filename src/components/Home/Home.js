@@ -35,8 +35,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Home() {
     return (
         <>
-            <Navbar />
-            <Box component="main" sx={{ flexGrow: 1, ml: 20 }}>
+            {/* <Navbar /> */}
+            <Box component="main" sx={{ flexGrow: 1}}>
                 {/* <DrawerHeader /> */}
                 <Container>
 

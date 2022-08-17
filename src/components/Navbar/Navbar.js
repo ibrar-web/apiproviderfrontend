@@ -27,12 +27,24 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Navigation from '../../navigation/Navigation';
+
+// import Home from '../Home/Home'
+// import Partner from '../Partner/Partner'
+// import PartnerUser from '../Partneruser/PartnerUser'
+// import Games from '../Games/Games'
+// import PartnerGames from '../Partnergames/PartnerGames'
+// import GameReport from '../GameReport/GameReport'
+// import PlayerReport from '../PlayerReport/PlayerReport'
+// import SupplierReport from '../SupplierReport/SupplierReport'
+// import SummaryReport from '../SummaryReport/SummaryReport'
 
 
 
 
 // Componenets import here
-
 
 
 const drawerWidth = 240;
@@ -117,10 +129,10 @@ export default function MiniDrawer() {
 
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex'}}>
             <CssBaseline />
             <AppBar position="fixed" open={open}>
-                <Toolbar>
+                <Toolbar sx={{backgroundColor:'black' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -133,51 +145,69 @@ export default function MiniDrawer() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Admin Dashboard
+                    <Typography variant="h6" noWrap component="div" sx={{color:'#f5b618'}}>
+                        Dashboard
                     </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
-                <DrawerHeader>
+                <DrawerHeader sx={{backgroundColor:'black'}}>
+                <Typography variant="h6" noWrap component="div" sx={{color:'#f5b618', marginRight:'40px'}}>
+                        Super Admin
+                    </Typography>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        {theme.direction === 'rtl' ? <ChevronRightIcon sx={{color:'#f5b618'}} /> : <ChevronLeftIcon sx={{color:'#f5b618'}}/>}
                     </IconButton>
                 </DrawerHeader>
-                <Divider />
-                <List >
+                {/* <Divider /> */}
+                <List sx={{backgroundColor:'black'}}>
 
-                    <Link sx={{ color: 'grey' }} to={'/home'}><ListItem><ListItemButton><ListItemIcon><HomeIcon /></ListItemIcon>Home</ListItemButton></ListItem></Link>
-                    <Link to={'/partner'}><ListItem ><ListItemButton><ListItemIcon><HandshakeIcon /></ListItemIcon>Partner</ListItemButton></ListItem></Link>
-                    <Link to={'/partnerusers'}><ListItem ><ListItemButton><ListItemIcon><PersonIcon /></ListItemIcon>Partner Users</ListItemButton></ListItem></Link>
-                    <Link to={'/games'}><ListItem ><ListItemButton><ListItemIcon><SmartToyIcon /></ListItemIcon>Games</ListItemButton></ListItem></Link>
-                    <Link to={'/partnergames'}><ListItem ><ListItemButton><ListItemIcon><CasinoIcon /></ListItemIcon>Partner Games</ListItemButton></ListItem></Link>
+                    <Link to={'/home'}><ListItem><ListItemButton><ListItemIcon sx={{color:'#f5b618'}}><HomeIcon /></ListItemIcon><Typography sx={{color:'#f5b618'}}>Home</Typography></ListItemButton></ListItem></Link>
+                    <Link to={'/partner'}><ListItem ><ListItemButton><ListItemIcon sx={{color:'#f5b618'}}><HandshakeIcon /></ListItemIcon><Typography sx={{color:'#f5b618'}}>Partner</Typography></ListItemButton></ListItem></Link>
+                    <Link to={'/partnerusers'}><ListItem ><ListItemButton><ListItemIcon sx={{color:'#f5b618'}}><PersonIcon /></ListItemIcon><Typography sx={{color:'#f5b618'}}>Partner Users</Typography></ListItemButton></ListItem></Link>
+                    <Link to={'/games'}><ListItem ><ListItemButton><ListItemIcon sx={{color:'#f5b618'}}><SmartToyIcon /></ListItemIcon><Typography sx={{color:'#f5b618'}}>Games</Typography></ListItemButton></ListItem></Link>
+                    <Link to={'/partnergames'}><ListItem ><ListItemButton><ListItemIcon sx={{color:'#f5b618'}}><CasinoIcon /></ListItemIcon><Typography sx={{color:'#f5b618'}}>Partner Games</Typography></ListItemButton></ListItem></Link>
 
 
                 </List>
-                <Divider />
+                {/* <Divider /> */}
 
-                <List>
+                <List sx={{backgroundColor:'black', color:'black'}}>
                     <PopupState variant="popover" popupId="demo-popup-menu">
                         {(popupState) => (
                             <React.Fragment>
-                                <ListItemIcon  sx={{ml:4}}><DragHandleIcon/></ListItemIcon>
-                                <Button variant="contained" {...bindTrigger(popupState)}>
+                                <ListItemIcon sx={{ ml: 4 }}><DragHandleIcon /></ListItemIcon>
+                                <Button variant="containedprimary" {...bindTrigger(popupState)} sx={{backgroundColor:'#f5b618'}}>
                                     Reports
                                 </Button>
                                 <Menu {...bindMenu(popupState)}>
-                                    <Link to={'/gamesreport'}><MenuItem onClick={popupState.close}>Game Report</MenuItem></Link> 
-                                    <Link to={'/playerreport'}><MenuItem onClick={popupState.close}>Player Report</MenuItem></Link> 
-                                    <Link to={'/supplierreport'}><MenuItem onClick={popupState.close}>Supplier Report</MenuItem></Link> 
-                                    <Link to={'/summaryreport'}><MenuItem onClick={popupState.close}>Summary Report</MenuItem></Link> 
+                                    <Link to={'/gamesreport'}><MenuItem sx={{backgroundColor:'black', color:'#f5b618'}} onClick={popupState.close}><Typography>Game Report</Typography></MenuItem></Link>
+                                    <Link to={'/playerreport'}><MenuItem sx={{backgroundColor:'black', color:'#f5b618'}} onClick={popupState.close}><Typography>Player Report</Typography></MenuItem></Link>
+                                    <Link to={'/supplierreport'}><MenuItem sx={{backgroundColor:'black', color:'#f5b618'}} onClick={popupState.close}><Typography>Supplier Report</Typography></MenuItem></Link>
+                                    <Link to={'/summaryreport'}><MenuItem sx={{backgroundColor:'black', color:'#f5b618'}} onClick={popupState.close}><Typography>Summary Report</Typography></MenuItem></Link>
                                 </Menu>
                             </React.Fragment>
                         )}
                     </PopupState>
                 </List>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <DrawerHeader />
+            <Box component="main" sx={{ flexGrow: 1, p: 3, mt:10}}>
+                <DrawerHeader>
+                    <Navigation />
+                    {/* <BrowserRouter> */}
+                    {/* <Routes>               
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/partner" element={<Partner />} />
+                        <Route path="/partnerusers" element={<PartnerUser />} />
+                        <Route path="/games" element={<Games />} />
+                        <Route path="/partnergames" element={<PartnerGames />} />
+                        <Route path="/gamesreport" element={<GameReport />} />
+                        <Route path="/playerreport" element={<PlayerReport />} />
+                        <Route path="/supplierreport" element={<SupplierReport />} />
+                        <Route path="/summaryreport" element={<SummaryReport />} />
+                    </Routes> */}
+                    {/* </BrowserRouter> */}
+                </DrawerHeader>
 
             </Box>
         </Box>
